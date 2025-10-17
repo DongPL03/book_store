@@ -28,6 +28,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/sach/:maSach" element={<ChiTietSanPham />} />
+          <Route path='/dangKy' element={<DangKyNguoiDung />} />
         </Routes>
         <Footer />
       </BrowserRouter>
