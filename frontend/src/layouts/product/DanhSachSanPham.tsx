@@ -15,7 +15,7 @@ function DanhSachSanPham({ tuKhoaTimKiem, maTheLoai }: DanhSachSanPhamProps) {
   const [baoLoi, setBaoLoi] = useState(null);
   const [trangHienTai, setTrangHienTai] = useState(1);
   const [tongSoTrang, setTongSoTrang] = useState(0);
-  //   const [tongSoSach, setSoSach] = useState(0);
+  // const [tongSoSach, setSoSach] = useState(0);
 
   useEffect(() => {
     if (tuKhoaTimKiem === "" && maTheLoai === 0) {

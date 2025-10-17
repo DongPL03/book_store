@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { ChangeEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Search } from "react-bootstrap-icons";
 
 interface NavbarProps {
   tuKhoaTimKiem: string;
@@ -8,69 +9,154 @@ interface NavbarProps {
 }
 
 function Navbar({ tuKhoaTimKiem, setTuKhoaTimKiem }: NavbarProps) {
+  const [tuKhoaTamThoi, setTuKhoaTamThoi] = useState("");
 
-  const [tuKhoaTamThoi, setTuKhoaTamThoi] = useState('');
+  const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // khi nhập nội dung
+    setTuKhoaTamThoi(e.target.value);
+  };
 
-  const onSearchInputChange = (e: ChangeEvent<HTMLInputElement>)=>{ // khi nhập nội dung
-      setTuKhoaTamThoi(e.target.value);
-  }
-
-  const handleSearch= ()=>{ // khi click chuột
+  const handleSearch = () => {
+    // khi click chuột
     setTuKhoaTimKiem(tuKhoaTamThoi);
-  }
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Bookstore</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a className="navbar-brand" href="#">
+          Bookstore
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Trang chủ</a>
+              <NavLink className="nav-link active" aria-current="page" to="/">
+                Trang chủ
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown1"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Thể loại sách
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown1">
-                <li><a className="dropdown-item" href="/1">Thể loại 1</a></li>
-                <li><a className="dropdown-item" href="/2">Thể loại 2</a></li>
-                <li><a className="dropdown-item" href="/3">Thể loại 3</a></li>
+                <li>
+                  <a className="dropdown-item" href="/1">
+                    Thể loại 1
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/2">
+                    Thể loại 2
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/3">
+                    Thể loại 3
+                  </a>
+                </li>
               </ul>
             </li>
             <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="#"
+                id="navbarDropdown1"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Thể loại sách
-              </Link>
+              </NavLink>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown1">
-                <li><Link className="dropdown-item" to="/1">Thể loại 1</Link></li>
-                <li><Link className="dropdown-item" to="/2">Thể loại 2</Link></li>
-                <li><Link className="dropdown-item" to="/3">Thể loại 3</Link></li>
+                <li>
+                  <NavLink className="dropdown-item" to="/1">
+                    Thể loại 1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/2">
+                    Thể loại 2
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/3">
+                    Thể loại 3
+                  </NavLink>
+                </li>
               </ul>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown2"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Quy định bán hàng
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
-                <li><a className="dropdown-item" href="#">Quy định 1</a></li>
-                <li><a className="dropdown-item" href="#">Quy định 2</a></li>
-                <li><a className="dropdown-item" href="#">Quy định 3</a></li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Quy định 1
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Quy định 2
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Quy định 3
+                  </a>
+                </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Liên hệ</a>
+              <a className="nav-link" href="#">
+                Liên hệ
+              </a>
             </li>
           </ul>
         </div>
 
         {/* Tìm kiếm */}
         <div className="d-flex">
-          <input className="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" onChange={onSearchInputChange} value={tuKhoaTamThoi} />
-          <button className="btn btn-outline-success" type="button" onClick={handleSearch}>Tìm kiếm</button>
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Tìm kiếm"
+            aria-label="Search"
+            onChange={onSearchInputChange}
+            value={tuKhoaTamThoi}
+          />
+          <button
+            className="btn btn-outline-success"
+            type="button"
+            onClick={handleSearch}
+          >
+            <Search />
+          </button>
         </div>
 
         {/* Biểu tượng giỏ hàng */}

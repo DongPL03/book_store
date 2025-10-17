@@ -36,7 +36,7 @@ export async function lay1AnhCuaMotSach(
   maSach: number
 ): Promise<HinHAnhModel[]> {
   // Xác định endpoint
-  const duongDan: string = `http://localhost:8088/sach/${maSach}/danhSachHinhAnh?sort=maHinhAnh,asc&page=0&size=1`;
+  const duongDan: string = `http://localhost:8080/sach/${maSach}/danhSachHinhAnh?sort=maHinhAnh,asc&page=0&size=1`;
 
   return layAnhCuaMotSach(duongDan);
 }
